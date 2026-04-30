@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.score-container{
+    display: flex;
+    justify-content: center;
+    gap:40px;
+}
+
+.shapes-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
