@@ -5,3 +5,4 @@ This is my implementation of the rock paper scissor from The Odin Project fundam
 | Version | Notes |
 | ------- | ------|
 | 1 | Game with no GUI |
+| 2 | Game with UI |

@@ -1,4 +1,9 @@
 
+let gameCount = 0;
+let humanScore = 0;
+let computerScore = 0;
+let result = "";
+
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3)
     if (computerChoice == 1){
@@ -10,31 +15,19 @@ function getComputerChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
-    while(gameCount<=5){
-        if (humanChoice === computerChoice){
-            return 'Draw';
-        }
-        
-        if (humanChoice === 'rock' && computerChoice === 'scissors' ||
-            humanChoice === 'scissors' && computerChoice === 'paper' ||
-            humanChoice === 'paper' && computerChoice === 'rock'
-        ){
-            humanScore++;
-            return "You Win";
-        }else{ 
-            computerScore++;
-            return "You Lose";
-        }
+    if (humanChoice === computerChoice){
+        return 'Draw';
     }
-
-    if (gameCount === 5){
-        alert("You win");
-        humanScore = 0;
-        computerScore = 0;
-        result = "";
-        gameCount = 0;
-        modifyDisplay("","")
-
+    
+    if (humanChoice === 'rock' && computerChoice === 'scissors' ||
+        humanChoice === 'scissors' && computerChoice === 'paper' ||
+        humanChoice === 'paper' && computerChoice === 'rock'
+    ){
+        humanScore++;
+        return "You Win";
+    }else{ 
+        computerScore++;
+        return "You Lose";
     }
 }
 
@@ -56,6 +49,14 @@ function modifyDisplay(humanChoice, computerChoice){
 
 }
 
+function resetValues(){
+    result = "";
+    humanScore = 0;
+    gameCount = 0;
+    computerScore = 0;
+    modifyDisplay("","");
+}
+
 const buttons = document.querySelectorAll(".btn-choice");
 buttons.forEach(button => {
     button.addEventListener('click',(e) => {
@@ -64,19 +65,21 @@ buttons.forEach(button => {
         let computerChoice = getComputerChoice();
         result = playRound(humanChoice,computerChoice);
         modifyDisplay(humanChoice, computerChoice);
+
+        if (humanScore == 5 || computerScore == 5){
+            setTimeout(() => {
+                if (humanScore == 5){
+                    alert("You win!!")
+                }else{
+                    alert("You lose!!")
+                }
+                resetValues();
+            }, 50);
+        }
     })
 })
 
 const btn = document.querySelector("#btn-reset");
-btn.addEventListener('click',() => {
-    gameCount = 0;
-    result = "";
-    humanScore = 0;
-    computerScore = 0;
-    modifyDisplay("","");
-})
+btn.addEventListener('click', resetValues());
 
-let gameCount = 0;
-let humanScore = 0;
-let computerScore = 0;
-let result = "";
+
