@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+        <h2>Score</h2>
+        <div class="score-container">
+            <div class = "human_score_container">
+                <h3 id="human_score_label">You</h3>
+                <p id="human_score">0</p>
+                <p id="human_choice"></p>
+            </div>
+            <div class="separator"></div>
+            <div class="computer_score_container">
+                <h3 id="computer_score_label">Computer</h3>
+                <p id="computer_score">0</p>
+                <p id="computer_choice"></p>
+            </div>
+        </div>
+        <p id="result"></p>
+        <h2>Start Game</h2>
+        <div class="shapes-container">
+            <button class="btn-choice" id="btn-rock">Rock</button>
+            <button class="btn-choice" id="btn-paper">Paper</button>
+            <button class="btn-choice" id="btn-scissors">Scissors</button>
+        </div>
+        <button id="btn-reset">Reset</button>
+        <p>Game Count: <span id="game-count">0</span> </p>
+    </div>
+    
+
+
     <script src="script.js"></script>
 </body>
 </html>
